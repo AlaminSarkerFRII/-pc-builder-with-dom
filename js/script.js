@@ -6,27 +6,7 @@
 
  });
 
-/* access ITB 
 
-document.getElementById('eightGB').addEventListener('click',function(){
- 
-    updatePrice('memory-cost', 0); // for reset 8GB cost
-    
-})
-
-document.getElementById('ssd3').addEventListener('click',function(){
- 
-    updatePrice('storage-cost',500);
-    
-})
-
-document.getElementById('paid-delivery').addEventListener('click',function(){
-   
-    updatePrice('delivery-cost',20);
-    
-});
-
- */
 
 function onClick(clickId, updateId,price){
     document.getElementById(clickId).addEventListener('click',function(){
@@ -66,9 +46,26 @@ function updatePrice (itemId,price){
 
 // Cupon code access
 
+let fakeCode = 'phero';
 document.getElementById('apply-btn').addEventListener('click',function(){
     const inputText = document.getElementById('promo-input').value;
 
-    console.log(inputText);
+    if(inputText ===fakeCode){
+       const total = document.getElementById('total-price');
+       let totalPrice = parseInt(total.innerText);
+
+       //discount 
+
+       const discount = (totalPrice*20)/100;
+
+       totalPrice =  totalPrice - discount ;
+
+       total.innerText = totalPrice;
+
+     
+
+}else{
+    alert('please select right code');
+}
     
 })
