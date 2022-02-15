@@ -6,18 +6,40 @@
 
  });
 
-// access ITB 
+/* access ITB 
+
+document.getElementById('eightGB').addEventListener('click',function(){
+ 
+    updatePrice('memory-cost', 0); // for reset 8GB cost
+    
+})
 
 document.getElementById('ssd3').addEventListener('click',function(){
-    // const extraStroge = document.getElementById('storage-cost').innerText;
-
+ 
     updatePrice('storage-cost',500);
     
 })
 
+document.getElementById('paid-delivery').addEventListener('click',function(){
+   
+    updatePrice('delivery-cost',20);
+    
+});
 
+ */
 
+function onClick(clickId, updateId,price){
+    document.getElementById(clickId).addEventListener('click',function(){
+   
+        updatePrice(updateId,price);
 
+    })
+}
+
+onClick('sixteenGB','memory-cost',300)
+onClick('eightGB','memory-cost',0)
+onClick('ssd1','storage-cost',0)
+onClick('ssd2','storage-cost',200)
 
 
 
@@ -42,3 +64,11 @@ function updatePrice (itemId,price){
 }
 
 
+// Cupon code access
+
+document.getElementById('apply-btn').addEventListener('click',function(){
+    const inputText = document.getElementById('promo-input').value;
+
+    console.log(inputText);
+    
+})
